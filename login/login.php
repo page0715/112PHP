@@ -38,12 +38,13 @@
 <body>
 <div class='login-block'>
     <?php
-    if(isset($_GET['m'])){
-        echo "<span style='color:red'>".$_GET['m']."</span>";
+    session_start();
+    if(isset($_SESSION['error'])){
+        echo "<span style='color:red'>".$_SESSION['error']."</span>";
     }
     
-    if(isset($_GET['login']) && $_GET['login']==1){
-        echo "歡迎你";
+    if(isset($_SESSION['login']) && $_SESSION['login']==1){
+        echo $_SESSION['login']."歡迎你";
     }else{
 ?>
 <form action="check.php" method="post">
