@@ -41,10 +41,12 @@
     session_start();
     if(isset($_SESSION['error'])){
         echo "<span style='color:red'>".$_SESSION['error']."</span>";
+        unset($_SESSION['error']);
     }
     
-    if(isset($_SESSION['login']) && $_SESSION['login']==1){
-        echo $_SESSION['login']."歡迎你";
+    if(isset($_SESSION['login']) && !empty($_SESSION['login'])){
+        echo $_SESSION['login']." 歡迎你";
+        echo "<a href='logout.php'>登出</a>";
     }else{
 ?>
 <form action="check.php" method="post">
