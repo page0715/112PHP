@@ -29,7 +29,9 @@ if(isset($_GET['month']) && isset($_GET['year'])){
     $year=date("Y");
 }
 
-echo "<h3 style='text-align:center'>".date("西元{$year}年{$month}月")."</h3>";
+echo "<h3 style='text-align:center'>";
+echo date("西元{$year}年{$month}月");
+echo "</h3>";
 $thisFirstDay=date("{$year}-{$month}-1");
 $thisFirstDate=date('w',strtotime($thisFirstDay));
 $thisMonthDays=date("t");

@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>萬年曆作業</title>
     <style>
+        body{
+            
+        }
         table{
             border-collapse: collapse;
             border:3px double #999;
@@ -18,7 +21,6 @@
         }
     </style>
 </head>
-<body>
 <?php 
 
 if(isset($_GET['month']) && isset($_GET['year'])){
@@ -39,6 +41,9 @@ $thisLastDay=date("{$year}-{$month}-$thisMonthDays");
 $weeks=ceil(($thisMonthDays+$thisFirstDate)/7);
 $firstCell=date("Y-m-d",strtotime("-$thisFirstDate days",strtotime($thisFirstDay)));
 ?>
+
+<body style='opacity:.9;background-image: url("./img/<?=$month;?>.jpg");background-size:100%;'>
+
 <div style='width:264px;display:flex;margin:auto;justify-content:space-between'>
 <?php
 $nextYear=$year;
