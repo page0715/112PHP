@@ -7,25 +7,25 @@
 </head>
 <body>
 <h2>會員註冊</h2>    
-<form action="./adduer.php" method="post">
+<form action="./add_user.php" method="post">
     <div>
-        <label for="">帳號</label>
+        <label>帳號</label>
         <input type="text" name="acc" id="acc">
     </div>
     <div>
-        <label for="">密碼:</label>
-        <input type="text" name="password" id="password">
+        <label>密碼:</label>
+        <input type="text" name="pw" id="pw">
     </div>
     <div>
-        <label for="">姓名:</label>
+        <label>姓名:</label>
         <input type="text" name="name" id="name">
     </div>
     <div>
-        <label for="">E-Mail:</label>
+        <label>E-Mail:</label>
         <input type="text" name="email" id="email">
     </div>
     <div>
-        <label for="">居住地:</label>
+        <label>居住地:</label>
         <input type="text" name="address" id="address">
     </div>
     <div>
