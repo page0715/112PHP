@@ -18,11 +18,14 @@
         .container {
             width: 80%;
             height: 8vh;
-            background-color: lightgray;
+            color: yellow;
+            /* background-color: lightgray; */
             text-align: center;
             margin: auto;
             display: flex;
             justify-content: center;
+            font-size: 30px;
+            font-family: '標楷體';
             flex-wrap: wrap;
             align-items: center;
             /* margin-bottom: 20px; */
@@ -71,7 +74,7 @@
             text-align: center;
             margin: auto;
             display: flex;
-            font-size: 50px;
+            font-size: 40px;
             font-family: '標楷體';
             background-color: lightblue;
             margin: auto;
@@ -139,7 +142,7 @@ $firstCell = date("Y-m-d", strtotime("-$thisFirstDate days", strtotime($thisFirs
         if (($month + 1) > 12) {
             $next = 1;
             $nextYear = $year + 1;
-        } else {
+        } else {    
             $next = $month + 1;
         }
 
@@ -158,9 +161,9 @@ $firstCell = date("Y-m-d", strtotime("-$thisFirstDate days", strtotime($thisFirs
         <div class="div" style='width:33%;'> <span style='text-align:center'> 西元<?= $year; ?>年</span></div>
         <div class="div" style='width:33%;text-align: left;'><a href="?year=<?= $prevYear + 1; ?>&month=<?= $month; ?>" style='text-decoration:none;'><i class="fa-solid fa-forward"></i>下一年</a></div>
         <br>
-        <div class="div" style='width:33%;text-align: right;'><a href="?year=<?= $prevYear; ?>&month=<?= $prev; ?>" style='text-decoration:none;'> <i class="fa-solid fa-backward"></i> 上一個月</a></div>
+        <div class="div" style='width:33%;text-align: right;'><a href="?year=<?= $prevYear; ?>&month=<?= $prev; ?>" style='text-decoration:none;'> <i class="fa-solid fa-backward"></i>上一月</a></div>
         <div class="div" style='width:33%;'><span style='text-align:center'> <?= $month; ?>月</span></div>
-        <div class="div" style='width:33%;text-align: left;'><a href="?year=<?= $nextYear; ?>&month=<?= $next; ?>" style='text-decoration:none;'><i class="fa-solid fa-forward"></i>下一個月</a></div>
+        <div class="div" style='width:33%;text-align: left;'><a href="?year=<?= $nextYear; ?>&month=<?= $next; ?>" style='text-decoration:none;'><i class="fa-solid fa-forward"></i>下一月</a></div>
     </div>
 
     <table style='width:700px;display:block;margin:auto'>
