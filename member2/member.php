@@ -1,4 +1,6 @@
-<?php session_start();?>
+<?php 
+include_once "./include/connect.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,8 +39,8 @@
 <div class="container">
     <h1>使用者資料</h1>
     <?php
-$dsn="mysql:host=localhost;charset=utf8;dbname=member";
-$pdo=new PDO($dsn,'root','');
+
+
 $sql="select * from users where `acc`='{$_SESSION['user']}'";
 $user=$pdo->query($sql)->fetch();
     ?>
