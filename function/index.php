@@ -42,6 +42,7 @@ function sum2(...$arg){
         if(is_numeric($num)){
             $sum +=$num;
         }
+        
     }   
         return $sum;
 
@@ -50,7 +51,7 @@ function sum2(...$arg){
 
 echo sum2(1,2);
 echo "<hr>";
-echo sum2(23,45,89);
+echo sum2(23,45,33);
 echo "<hr>";
 echo sum2(23,98,34,56,89,22,3,4);
 echo "<hr>";
