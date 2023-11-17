@@ -39,10 +39,16 @@ include_once "./include/connect.php";
 <div class="container">
     <h1>使用者資料</h1>
     <?php
+        if(isset($_SESSION['msg'])){
+            echo "<div class='alert alert-warning text-center col-6 m-auto'>";
+            echo $_SESSION['msg'];
+            unset($_SESSION['msg']);
+            echo "</div>";
+        }
 
 
-$sql="select * from users where `acc`='{$_SESSION['user']}'";
-$user=$pdo->query($sql)->fetch();
+        $sql="select * from users where `acc`='{$_SESSION['user']}'";
+        $user=$pdo->query($sql)->fetch();
     ?>
     <form action="update.php" method="post" class="col-4 m-auto">
         <div class="input-group my-1">
@@ -66,6 +72,7 @@ $user=$pdo->query($sql)->fetch();
             <input class="form-control" type="text" name="address" id="address" value="<?=$user['address'];?>">
         </div>
         <div>
+            <input type="hidden" name="id" id="id" value="<?=$user['id'];?>">
             <input class="btn-primary mx-2" type="submit" value="更新">
             <input class="btn btn-warning mx-2" type="reset" value="重置">
             <input class="btn btn-danger mx-2" type="button" value="讓我消失吧">
