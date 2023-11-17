@@ -6,15 +6,20 @@
 </style>
 <?php
 
-equilateral_triangle(5);
+stars('正三角形',7);
+stars('菱形',7);
+stars('矩形',7);
+stars('矩形對角線',7);
+
+// equilateral_triangle(5);
 //equilateral_triangle(9);
 //equilateral_triangle(13);
-diamond(5);
+// diamond(5);
 //diamond(7);
 //diamond(9);
-retangle(5);
-retangle(7);
-retangle(9);
+// retangle(5);
+// retangle(7);
+// retangle(9);
 function equilateral_triangle($size){
     for($i=0;$i<$size;$i++){
         for($j=0;$j<($size-1-$i);$j++){
@@ -64,4 +69,42 @@ function retangle($size){
         }
         echo "<br>";
     }
+}
+
+function retangle_cross($size){
+    for($i=0;$i<$size;$i++){
+
+        for($j=0;$j<$size;$j++){
+            if($i==0 || $i==($size-1)){
+                echo "*";
+            }else if($j==0 || $j==($size-1) || $j==$i || $i+$j==($size-1)){
+                echo "*";
+            }else{
+                echo "&nbsp;";
+            }
+        }
+        echo "<br>";
+    }
+}
+
+
+function stars($shape,$size){
+
+    switch($shape){
+        case '正三角形':
+            equilateral_triangle($size);
+        break;
+        case '菱形':
+            diamond($size);
+        break;
+        case '矩形':
+            retangle($size);
+        break;
+        case '矩形對角線':
+            retangle_cross($size);
+        break;
+
+    }
+
+
 }
