@@ -1,55 +1,42 @@
 <?php
 
-// $rows=all('students',"where dept='1';");
-$rows=all('students');
-dd($rows);
+$rows=all('students',['dept'=>'3']);
 
-function all($table=null,$where=''){
+dd($rows);
+function all($table=null,$where='',$other=''){
     $dsn="mysql:host=localhost;charset=utf8;dbname=school";
     $pdo=new PDO($dsn,'root','');
-
+    $sql="select * from `$table` ";
+    
     if(isset($table) && !empty($table)){
 
         if(is_array($where)){
             /**
-             * 
-             * [`dept`=>2,`graduate_at`=>12 =] => where `dept`=2 && `graduate_at`='12'
-             * 
+             * ['dept'=>'2','graduate_at'=>12] =>  where `dept`='2' && `graduate_at`='12'
              * $sql="select * from `$table` where `dept`='2' && `graduate_at`='12'"
-             * 
              */
-            $tsql="select * from `$table`";
-
             if(!empty($where)){
                 foreach($where as $col => $value){
-                    $tmp[]="`$col`=`$value`";
+                    $tmp[]="`$col`='$value'";
                 }
-                $sql="select * from `$table` where ".join(" && ",$tmp);
-            
-            }else{
-                $sql="select * from `$table` ";
+                $sql .= " where ".join(" && ",$tmp);
             }
-            
         }else{
-            $sql="select * from `$table` $where;";
-
+            $sql .=" $where";
         }
 
-
-
-
-
-    // $sql="select * from `students`;";
-    $rows=$pdo->query($sql)->fetchAll();
-    return $rows;
+            $sql .=$other;
+        //echo $sql;
+        $rows=$pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $rows;
     }else{
         echo "錯誤:沒有指定的資料表名稱";
     }
 }
 
-function dd($array){
-    echo "<pre>";
-    print_r($array);
-    echo "</pre>";
 
-}
+ function dd($array){
+     echo "<pre>";
+     print_r($array);
+     echo "</pre>";
+ }
