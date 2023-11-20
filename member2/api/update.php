@@ -1,6 +1,6 @@
 <?php
 
-include_once "./include/connect.php";
+include_once "../include/connect.php";
 
 $sql="update `users` set `acc`='{$_POST['acc']}',
                          `pw`='{$_POST['pw']}',
@@ -16,4 +16,4 @@ $sql="update `users` set `acc`='{$_POST['acc']}',
       }
 
 
-header("location:member.php");
+header("location:../member.php");

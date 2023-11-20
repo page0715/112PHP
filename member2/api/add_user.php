@@ -1,5 +1,5 @@
 <?php
-include_once "./include/connect.php";
+include_once "../include/connect.php";
 
 $acc=htmlspecialchars(trim($_POST['acc']));
 
