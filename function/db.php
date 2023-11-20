@@ -9,10 +9,11 @@
 //echo "<hr>";;
 //echo "<h3>相同條件使用all()</h3>";
 //dd($rows);
+insert('dept',['code'=>'112','name'=>'織品系']);
+//$up=update("students",'3',['dept'=>'16','name'=>'張明珠']);
+//$up=update("students",['dept'=>2,'status_code'=>'001'],['dept'=>'99','name'=>'張明珠']);
 
-$up=update("students",'3',['dept'=>'16','name'=>'張明珠']);
-
-dd($up);
+//dd($up);
 function all($table=null,$where='',$other=''){
     $dsn="mysql:host=localhost;charset=utf8;dbname=school";
     $pdo=new PDO($dsn,'root','');
@@ -80,7 +81,7 @@ function update($table,$id,$cols){
     }
 
     $sql .= join(",",$tmp);
-
+    $tmp=[];
     if(is_array($id)){
         foreach($id as $col => $value){
             $tmp[]="`$col`='$value'";
@@ -94,6 +95,22 @@ function update($table,$id,$cols){
     echo $sql;
     return $pdo->exec($sql);
 }
+
+function insert($table,$values){
+    $dsn="mysql:host=localhost;charset=utf8;dbname=school";
+    $pdo=new PDO($dsn,'root','');
+
+    $sql="insert into `$table` ";
+    $cols="(`".join("`,`",array_keys($values))."`)";
+    $vals="('".join("','",$values)."')";
+    
+    $sql=$sql . $cols ." values ".$vals;
+    
+    //echo $sql;
+
+    return $pdo->exec($sql);
+}
+
 
  function dd($array){
      echo "<pre>";
