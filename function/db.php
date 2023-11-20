@@ -9,9 +9,11 @@
 //echo "<hr>";;
 //echo "<h3>相同條件使用all()</h3>";
 //dd($rows);
-insert('dept',['code'=>'112','name'=>'織品系']);
+//insert('dept',['code'=>'112','name'=>'織品系']);
 //$up=update("students",'3',['dept'=>'16','name'=>'張明珠']);
 //$up=update("students",['dept'=>2,'status_code'=>'001'],['dept'=>'99','name'=>'張明珠']);
+
+del('students',['dept'=>5,'status_code'=>'001']);
 
 //dd($up);
 function all($table=null,$where='',$other=''){
@@ -111,6 +113,26 @@ function insert($table,$values){
     return $pdo->exec($sql);
 }
 
+function del($table,$id){
+    $dsn="mysql:host=localhost;charset=utf8;dbname=school";
+    $pdo=new PDO($dsn,'root','');
+    $sql="delete from `$table` where ";
+
+    if(is_array($id)){
+        foreach($id as $col => $value){
+            $tmp[]="`$col`='$value'";
+        }
+        $sql.= join(" && ",$tmp);
+
+    }else if(is_numeric($id)){
+        $sql .= " `id`='$id'";
+    }else{
+        echo "錯誤:參數的資料型態比須是數字或陣列";
+    }
+    echo $sql;
+
+    return $pdo->exec($sql);
+}
 
  function dd($array){
      echo "<pre>";
