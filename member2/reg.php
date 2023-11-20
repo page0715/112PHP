@@ -10,7 +10,7 @@
 <body >
 <div id="app" class="container">
     <h2 class="text-center">會員註冊</h2>    
-    <form action="./add_user.php" method="post" class="col-4 m-auto">
+    <form action="./api/add_user.php" method="post" class="col-4 m-auto">
         <div class="input-group my-1">
             <label class="col-4  input-group-text">帳號:</label>
             <input class="form-control"  type="text" name="acc" id="acc">
