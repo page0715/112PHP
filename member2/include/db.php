@@ -3,7 +3,7 @@ date_default_timezone_set("Asia/Taipei");
 session_start();
 class DB{
 
-    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=school";
+    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=member";
     protected $pdo;
     protected $table;
 
@@ -141,9 +141,7 @@ function dd($array)
     echo "</pre>";
 }
 
+$User=new DB('users');
 
-$student=new DB('students');
-$rows=$student->count();
-dd($rows);
 
 ?>

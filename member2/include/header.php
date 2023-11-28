@@ -1,4 +1,4 @@
-<h1>哈哈購商城</h1>
+<h1>GOODJOB購物商城</h1>
 <header class="nav">
     <div class="nav-item col-4"></div>
     <div class="nav-item col-4">

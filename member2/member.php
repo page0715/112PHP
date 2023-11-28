@@ -56,6 +56,7 @@ include_once "./include/connect.php";
             <input class="btn btn-danger mx-2" type="button" value="讓我消失吧" onclick="location.href='./api/del_user.php?id=<?=$user['id'];?>'">
         </div>    
     </form>
+    <?php include "./include/footer.php";?>
 </div>
 </body>
 </html>
